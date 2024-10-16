@@ -21,10 +21,9 @@ create table disciplinas (
     professor varchar(100) not null
 );
 
-<<<<<<< HEAD
 select * from usuarios;
 select * from disciplinas;
-=======
+
 -- inserindo dados na tabela "usuarios"
 
 INSERT INTO usuarios (nome_usuario, email, senha, preferencias) VALUES
@@ -32,11 +31,6 @@ INSERT INTO usuarios (nome_usuario, email, senha, preferencias) VALUES
     ('Pedro Santos', 'pedro@email.com', 'senha789', 'administrativo');
     
 select* from usuarios;
->>>>>>> 2a6f87670e0d2d967c2672de44f2b5de54c8cc7d
-
-
-
-
 
 
 
