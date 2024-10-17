@@ -1,4 +1,5 @@
 /*------------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
 
 *{
     margin: 0;
@@ -6,12 +7,170 @@
     box-sizing: border-box;
 }
 
+
+#body_index {
+    font-family: "Oswald", sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 150px;
+    text-align: center;
+}
+
+#body_index h1 {
+    margin: 20px;
+    font-size: 30px;
+}
+
+#body_index p {
+    padding: 30px;
+}
+
+.container-button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    width: 500px;
+}
+
+.container-button .btn-login{
+    background-color: rgb(18, 18, 216);
+    text-decoration: none;
+    color: white;
+    padding: 5px 15px;
+    font-size: 30px;
+}
+
+.container-button .btn-registro {
+    background-color: rgb(18, 18, 216);
+    text-decoration: none;
+    color: white;
+    padding: 5px 15px;
+    font-size: 30px;
+}
+
+
+
+
+/*----página de gerenciamento------*/
+
 .container-logo img{
-    width: 200px;
+    width: 100px;
 }
 
 header {
     display: flex;
+    font-family: "Oswald", cursive;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 1500px;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+nav ul li {
+    padding: 0 40px;
+}
+
+#body_gerenciamento {
+    font-family: "Oswald", sans-serif;
+}
+
+#body_gerenciamento h1 {
+    text-align: center;
+    margin: 30px 0;
+    font-size: 35px;
+}
+
+#body_gerenciamento p {
+    text-align: center;
+    padding: 5px 20px;
+    font-size: 28px;
+}
+
+#table_disciplinas {
+    margin: 10px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(6, 143, 255);
+    margin-bottom: 50px;
+    color: white;
+}
+
+#table_disciplinas thead tr {
+    display: flex;
+    margin: 10px;
+}
+
+#table_disciplinas thead tr th {
+    font-size: 26px;
+    padding: 5px 0;
+    font-weight: normal;
+    border: 2px solid white;
+    width: 300px;
+}
+
+#disciplinasTableBody tr {
+    margin: 5px;
+}
+
+#disciplinasTableBody tr td{
+    font-size: 22px;
+    text-align: center;
+    font-weight: normal;
+    width: 300px;
+    border: 1px solid white;
+    padding: 5px 0;
+}
+
+
+
+
+
+
+
+
+/*Página login*/
+.container {
+    text-align: center;
+    margin-top: 100px;
+}
+
+form {
+    width: 300px;
+    margin: 0 auto;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+}
+
+button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
 }
 
 

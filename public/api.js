@@ -1,7 +1,3 @@
-const { json } = require("body-parser");
-const { RegistrarUsuario } = require("../controllers/authControllers");
-const { append } = require("express/lib/response");
-
 //------------------------------------------
 const API_URL = 'http://localhost:5000/api'
 
@@ -26,7 +22,7 @@ async function login(email, senha) {
         return result;
     }
     catch(error) {
-        console.error("ERRO! api/login/login", error);
+        console.error("ERRO! api/auth/login", error);
 
         return {success: false}
     }
@@ -35,29 +31,33 @@ async function login(email, senha) {
 //------Função para registrar usuario---------
 async function registrar(nome_usuario, email, senha, preferencias) {
     try {
-        console.log("Dados enviados:", {nome_usuario, email, senha, preferencias});
+        console.log('Dados enviados:', {nome_usuario,email,senha,preferencias});
         //
-        const response = await fetch(`${API_URL}/auth/registro`,
-            {
-                method: "POST",
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({nome_usuario, email, senha, preferencias})               
-            });
-            //
-            if(!response.ok) {
-                throw new Error('Falha na requisição. Código de status: '+ response.status);
-            }
-            //
-            const result = response.text();
-            console.log('Resposta:', result);
+        const response = await fetch(`${API_URL}/auth/registro`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            }, 
+            body: JSON.stringify({nome_usuario, email, senha, preferencias})
+        });
+        
+        if(!response.ok) {
+            throw new Error('Falha na requisição. Códigode status: '+ response.status);
+    
+        }
+        //
+        const result = await response.text();
 
-            return {success:true, message: result};
+        console.log('Resposta do servidor ao registro: ', result);
+
+        //
+        return{success:true, message:result}
     }
+    //
     catch(error) {
-        console.error('erro. registro falhou:', error.message);
-    return {success: false, message: error.message}
+        console.error('ERRO AO REGISTRAR:', error.message);
+
+    return{success:false, message: error.message};
     }
 }
 
@@ -66,12 +66,13 @@ async function registrar(nome_usuario, email, senha, preferencias) {
 async function VisualizarDisciplinas() {
     const response = await fetch(`${API_URL}/router`,
         {
-            method: "GET",
+            method: 'GET',
             headers: {
                 'Authorization': `Bearer ${localStorage.getItem('token')}`
             }
         }
     ) 
+    return response.json();
 }
 
 //-----função para adicionar disciplina

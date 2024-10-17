@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GERENCIAMENTO - Concurseiro 1000</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container-logo">
+            <a href="index.html">
+                <img src="images/logo_without_background.png" alt="">
+            </a>
+        </div>
+        
+        <nav>
+            <ul>
+                <li>Visualizar Disciplinas</li>
+                <li>Adicionar Disciplina</li>
+                <li>Editar Disciplina</li>
+                <li>Deletar Disciplina</li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main id="body_gerenciamento">
+        <h1>Concurseiro 1000</h1>
+        <p>Concurseiro 100 é uma ferramenta para gerenciamento de matérias para concurseiros, sendo essencial para organizar os estudos e otimizar o tempo. Ela permite que o usuário acompanhe o progresso de cada matéria, com funcionalidades como a possibilidade de adicionar, editar, deletar, atualizar e visualizar as disciplinas. Essa ferramenta torna o processo de estudo mais eficiente e eficaz, ajudando o concurseiro a alcançar seus objetivos.</p>
+        
+        <!-- Tabela de matérias cadastradas -->
+
+        <table id="table_disciplinas">
+            <thead>
+                <tr>
+                    <th>Nome_disciplina</th>
+                    <th>Área</th>
+                    <th>Peso</th>
+                    <th>Dificuldade</th>
+                    <th>Professor</th>
+                </tr>
+            </thead>
+            <tbody id="disciplinasTableBody">
+
+            </tbody>
+        </table>
+
+
+    </main>
+    
+    <script src="api.js" defer></script>
+
+    <script>
+        async function carregarDisciplinas() {
+            const token = localStorage.getItem('token');
+            console.log("Token armazenado:", token);
+
+            const disciplinas = await VisualizarDisciplinas();
+            console.log('Disciplinas carregadas', disciplinas);
+
+            //
+            const tbody = document.getElementById('disciplinasTableBody')
+            tbody.innerHTML = '';
+
+            //
+            if(disciplinas.lenght === 0) {
+                console.log('Nenhuma disciplina encontrada');
+                const tr = document.createElement('tr');
+                tr.innerHTML = 
+                `<td colspan="5">Nenhuma disciplina foi encontrada!</td>`;
+                tbody.appendChild(tr);
+            return
+            }
+
+            //
+            disciplinas.forEach(disciplina => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = 
+                `<td>${disciplina.nome_disciplina}</td>
+                <td>${disciplina.area}</td>
+                <td>${disciplina.peso}</td>
+                <td>${disciplina.dificuldade}</td>
+                <td>${disciplina.professor}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+        document.addEventListener('DOMContentLoaded', carregarDisciplinas);
+
+    </script>
+
+
+
+
+
+
+
+</body>
+</html>

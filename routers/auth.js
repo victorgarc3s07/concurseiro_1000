@@ -3,7 +3,6 @@
 const express = require('express');
 const router = express.Router();
 const AuthControllers = require('../controllers/authControllers');
-const { route } = require('./router');
 
 // Rotas de login e registro
 

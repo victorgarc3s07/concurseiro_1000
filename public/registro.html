@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REGISTRE-SE - Concurseiro 1000</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <h2>Cadastre-se no Concurseiro 1000</h2>
+        <p>Insira suas informações nos campos descritos abaixo para ter acesso ao gerenciador de disciplinas!</p>
+
+        <div>
+            <form id="registro-form">
+                <label>Nome completo</label>
+                <input type="text" name="nome_usuario" id="nome_usuario" placeholder="ex: joão da silva medeiros">
+
+                <label for="">Email</label>
+                <input type="email" name="email" id="email" placeholder="ex: joao@gmail.com">
+
+                <label for="">Senha</label>
+                <input type="password" name="senha" id="senha">
+
+                <label for="">Preferências</label>
+                <input type="text" name="preferencias" id="preferencias" placeholder="ex: carreiras policiais">
+
+                <button class="btn" type="submit">Cadastre-se</button>
+
+            </form>
+
+        </div>
+
+    </main>
+
+    <script src="api.js" defer></script>
+    <script>
+        document.querySelector('#registro-form').addEventListener('submit', async(event)=> {
+            event.preventDefault();
+
+            //
+            const nome_usuario = document.getElementById('nome_usuario').value;
+            const email = document.getElementById('email').value;
+            const senha = document.getElementById('senha').value;
+            const preferencias = document.getElementById('preferencias').value;
+            //
+            const result = await registrar(nome_usuario, email, senha, preferencias);
+
+            if (result.success) {
+                alert('Registrado com sucesso');
+                document.getElementById('registro-form').reset();
+                //
+                window.location.href = 'login.html';
+            } else {
+                alert('Registro Falhou');
+            }
+        }
+    );
+
+    </script>
+
+    
+</body>
+</html>

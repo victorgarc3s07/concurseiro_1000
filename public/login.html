@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Página de Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Login</h1>
+        <form id="login-form">
+            <label for="email">Usuário:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Senha:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Entrar</button>
+        </form>
+    </div>
+    <script src="api.js"></script>
+    //
+    <script>
+        // Adiciona um listener ao formulário de login que intercepta o envio do formulário.
+           document.querySelector('#login-form').addEventListener('submit', async (event) => {
+               event.preventDefault(); // Impede o comportamento padrão de envio do formulário para a página.
+       
+               // Obtém os valores dos campos de e-mail e senha do formulário.
+               const email = document.getElementById('email').value;
+               const senha = document.getElementById('password').value;
+       
+               // Verifica se os campos de e-mail e senha estão preenchidos. Caso contrário, exibe um alerta.
+               if (!email || !senha) {
+                   alert('Por favor, preencha todos os campos.');
+                   return; // Interrompe a execução se os campos não estiverem preenchidos.
+               }
+       
+               // Chama a função de login e aguarda a resposta da API.
+               const result = await login(email, senha);
+       
+               // Verifica se a resposta contém um token.
+               if (result.token) {
+                   // Armazena o token JWT no localStorage para uso em futuras requisições autenticadas.
+                   localStorage.setItem('token', result.token);
+       
+                   // Redireciona o usuário para a página principal após o login bem-sucedido.
+                   window.location.href = 'gerenciamento.html';
+               } else {
+                   // Exibe uma mensagem de erro personalizada se o login falhar.
+                   alert(result.message || 'Login falhou! Verifique suas credenciais.');
+               }
+           });
+       </script>
+
+</body>
+</html>
