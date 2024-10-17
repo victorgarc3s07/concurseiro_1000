@@ -144,34 +144,6 @@ const LerUsuarios = (req, res) => {
     );
 }
 
-//-----------Realizar busca-----------
-
-const BuscaDisciplina = async (req, res) => {
-
-    const { busca } = req.body;
-    db.query(
-        'Select* from disciplinas where like '
-    )
-
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 module.exports = {
     LerDisciplinas,
     AdicionarDisciplina,
