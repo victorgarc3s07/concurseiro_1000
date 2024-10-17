@@ -35,22 +35,65 @@
     width: 500px;
 }
 
-.container-button .btn-login{
-    background-color: rgb(18, 18, 216);
+.container-button .btn-login a{
+    background-color: rgb(18, 153, 216);
     text-decoration: none;
     color: white;
     padding: 5px 15px;
     font-size: 30px;
 }
 
-.container-button .btn-registro {
-    background-color: rgb(18, 18, 216);
+.container-button .btn-registro a{
+    background-color: rgb(18, 153, 216);
     text-decoration: none;
     color: white;
     padding: 5px 15px;
     font-size: 30px;
 }
 
+/*Página login*/
+.container {
+    text-align: center;
+    margin-top: 100px;
+}
+
+form {
+    width: 300px;
+    margin: 0 auto;
+    font-family: "oswald", sans-serif;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+}
+
+button {
+    background-color: #096ee2;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+/*página de registro*/
+
+#body_registro {
+    font-family: "Oswald", cursive;
+    text-align: center;
+}
+
+#registro-form {
+    text-align: center;
+    font-family: "Oswald", sans-serif;
+}
 
 
 
@@ -69,7 +112,7 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 1500px;
+    width: 1700px;
 }
 
 nav ul {
@@ -142,36 +185,6 @@ nav ul li {
 
 
 
-/*Página login*/
-.container {
-    text-align: center;
-    margin-top: 100px;
-}
-
-form {
-    width: 300px;
-    margin: 0 auto;
-}
-
-label {
-    display: block;
-    margin-bottom: 10px;
-}
-
-input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-}
-
-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-}
 
 
 
